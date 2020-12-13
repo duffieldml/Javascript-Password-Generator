@@ -1,6 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+//Establishing variables to use in function
 var passwordLength;
 var passwordLower;
 var passwordUpper;
@@ -28,11 +29,13 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+//Function for generating the Password
 function generatePassword() {
 
   //User defines password length
   var passwordLength = prompt("Specify a password length between 8 and 128 characters!");
 
+  //If the user does not pick a number between 8 and 128, this is the message they receive
   if (passwordLength < 8 || passwordLength > 128) {
     passwordLength = prompt("Password length must be between 8 and 128 characters!");
 
@@ -108,13 +111,16 @@ function generatePassword() {
     passwordChoices = special;
   };
 
+  //Placeholder for generating password
   var passwordHolder = [];
 
+  //Loop for generating the password
   for (var i = 0; i < passwordLength; i++) {
     var Choices = passwordChoices[Math.floor(Math.random() * passwordChoices.length)];
     passwordHolder.push(Choices);
   }
 
+  // This connects and inputs the password into the placeholder
   var password = passwordHolder.join("");
   return password;
 }
