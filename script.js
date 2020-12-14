@@ -57,17 +57,11 @@ function generatePassword() {
     passwordSpecial = confirm("Do you want your password to contain special characters?")
   };
 
-  //This is for if the user makes no choices on password criteria
-  if (!passwordLower && !passwordUpper && !passwordNumber && !passwordSpecial) {
-    passwordChoices = alert("You must pick at least one options for your password!");
-
   // If the user picks every criteria 
-  } else if (passwordLower && passwordUpper && passwordNumber && passwordSpecial) {
+  if (passwordLower && passwordUpper && passwordNumber && passwordSpecial) {
     passwordChoices = lowerCase.concat(upperCase, numbers, special);
 
     // If the user picks 3 of the 4 criteria
-  } else if (passwordLower && passwordUpper && passwordNumber) {
-    passwordChoices = lowerCase.concat(upperCase, numbers);
 
   } else if (passwordLower && passwordUpper && passwordSpecial) {
     passwordChoices = lowerCase.concat(upperCase, special);
@@ -75,21 +69,18 @@ function generatePassword() {
   } else if (passwordLower && passwordNumber && passwordSpecial) {
     passwordChoices = lowerCase.concat(numbers, special);
 
-  } else if (passwordUpper && passwordNumber && passwordSpecial) {
-    passwordChoices = upperCase.concat(numbers, special);
+  } else if (passwordLower && passwordUpper && passwordNumber) {
+    passwordChoices = lowerCase.concat(upperCase, numbers);  
+
+  } else if (passwordLower && passwordNumber && passwordSpecial) {
+    passwordChoices = lowerCase.concat(numbers, special);    
 
     // If the user picks 2 of the 4 criteria
   } else if (passwordLower && passwordUpper) {
     passwordChoices = lowerCase.concat(upperCase);
 
-  } else if (passwordLower && passwordNumber) {
-    passwordChoices = lowerCase.concat(numbers);
-
   } else if (passwordLower && passwordSpecial) {
     passwordChoices = lowerCase.concat(special);
-
-  } else if (passwordUpper && passwordNumber) {
-    passwordChoices = upperCase.concat(numbers);
 
   } else if (passwordUpper && passwordSpecial) {
     passwordChoices = upperCase.concat(special);
@@ -97,18 +88,25 @@ function generatePassword() {
   } else if (passwordNumber && passwordSpecial) {
     passwordChoices = numbers.concat(special);
 
+  } else if (passwordLower && passwordNumber) {
+    passwordChoices = lowerCase.concat(numbers);    
+
+  } else if (passwordUpper && passwordNumber) {
+    passwordChoices = upperCase.concat(numbers);    
+
   // If the user picks 1 of the 4 criteria
-  } else if (passwordLower) {
-    passwordChoices = lowerCase;
-    
   } else if (passwordUpper) {
     passwordChoices = upperCase;
 
   } else if (passwordNumber) {
     passwordChoices = numbers;
 
+  } else if (passwordLower) {
+    passwordChoices = lowerCase;
+
   } else if (passwordSpecial) {
-    passwordChoices = special;
+    passwordChoices = special;    
+        
   };
 
   //Placeholder for generating password
