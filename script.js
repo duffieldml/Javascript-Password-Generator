@@ -14,7 +14,7 @@ var passwordChoices;
 var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-var special = ["!", "#", "$", "%", "&", "'", ")", "(", "*", "+", ",", "-", "/", ":", ";", "<", "=", ">", "?", "@", "]", "[", "^", "_", ".", "}", "{", "|", "~", "`"];
+var special = ["!", "#", "$", "%", "&", "'", ")", "(", "*", "+", "-", "/", ":", ";", "<", "=", ">", "?", "@", "]", "[", "^", "_", ".", "}", "{", "|", "~", "`"];
 
 // Write password to the #password input
 function writePassword() {
@@ -59,40 +59,39 @@ function generatePassword() {
 
   // If the user picks every criteria 
   if (passwordLower && passwordUpper && passwordNumber && passwordSpecial) {
-    passwordChoices = lowerCase.concat(upperCase, numbers, special);
+    passwordChoices = lowerCase.concat(upperCase, numbers, special);   
 
-    // If the user picks 3 of the 4 criteria
-
+  // If the user picks 3 of the 4 criteria
   } else if (passwordLower && passwordUpper && passwordSpecial) {
-    passwordChoices = lowerCase.concat(upperCase, special);
+    passwordChoices = lowerCase.concat(special, upperCase);
 
   } else if (passwordLower && passwordNumber && passwordSpecial) {
-    passwordChoices = lowerCase.concat(numbers, special);
+    passwordChoices = numbers.concat(lowerCase, special);
 
   } else if (passwordLower && passwordUpper && passwordNumber) {
-    passwordChoices = lowerCase.concat(upperCase, numbers);  
+    passwordChoices = upperCase.concat(lowerCase, numbers);  
 
-  } else if (passwordLower && passwordNumber && passwordSpecial) {
-    passwordChoices = lowerCase.concat(numbers, special);    
+  } else if (passwordUpper && passwordNumber && passwordSpecial) {
+    passwordChoices = upperCase.concat(numbers, special);    
 
     // If the user picks 2 of the 4 criteria
   } else if (passwordLower && passwordUpper) {
-    passwordChoices = lowerCase.concat(upperCase);
+    passwordChoices = upperCase.concat(lowerCase);
 
   } else if (passwordLower && passwordSpecial) {
-    passwordChoices = lowerCase.concat(special);
+    passwordChoices = special.concat(lowerCase);
 
   } else if (passwordUpper && passwordSpecial) {
-    passwordChoices = upperCase.concat(special);
+    passwordChoices = special.concat(upperCase);
 
   } else if (passwordNumber && passwordSpecial) {
-    passwordChoices = numbers.concat(special);
+    passwordChoices = special.concat(numbers);
 
   } else if (passwordLower && passwordNumber) {
-    passwordChoices = lowerCase.concat(numbers);    
+    passwordChoices = numbers.concat(lowerCase);    
 
   } else if (passwordUpper && passwordNumber) {
-    passwordChoices = upperCase.concat(numbers);    
+    passwordChoices = numbers.concat(upperCase);    
 
   // If the user picks 1 of the 4 criteria
   } else if (passwordUpper) {
