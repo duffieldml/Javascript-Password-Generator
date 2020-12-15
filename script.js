@@ -1,15 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-//Establishing variables to use in function
-var passwordLength;
-var passwordLower;
-var passwordUpper;
-var passwordNumber;
-var passwordSpecial;
-var passwordChoices;
-
-
 //Arrays of available choices for creating passwords
 var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -31,6 +22,15 @@ generateBtn.addEventListener("click", writePassword);
 
 //Function for generating the Password
 function generatePassword() {
+
+  
+  //Establishing variables to use in function
+  var passwordLength;
+  var passwordLower;
+  var passwordUpper;
+  var passwordNumber;
+  var passwordSpecial;
+  var passwordChoices;
 
   //User defines password length
   var passwordLength = prompt("Specify a password length between 8 and 128 characters!");
